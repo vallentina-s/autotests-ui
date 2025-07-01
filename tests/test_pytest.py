@@ -10,7 +10,7 @@ class TestUserLogin:
         ...
 
 
-def test_assert_positie_case():
+def test_assert_positive_case():
     assert (2 + 2) == 4
     assert (3 + 3) == 6
     assert (4 + 4) == 8
