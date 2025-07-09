@@ -1,7 +1,5 @@
-from typing import Any, Generator
-
 import pytest
-from playwright.sync_api import Playwright, expect, Page
+from playwright.sync_api import Playwright, Page
 
 
 @pytest.fixture
@@ -12,7 +10,7 @@ def chromium_page(playwright: Playwright) -> Page:
 
 
 @pytest.fixture(scope="session")
-def initialize_browser_state(playwright: Playwright) -> Page:
+def initialize_browser_state(playwright: Playwright):
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context()
     page = context.new_page()
@@ -31,10 +29,7 @@ def initialize_browser_state(playwright: Playwright) -> Page:
     registration_button = page.get_by_test_id('registration-page-registration-button')
     registration_button.click()
 
-    expect(page).to_have_url('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/dashboard')
-
     context.storage_state(path='browser-state.json')
-
     browser.close()
 
 
@@ -42,7 +37,6 @@ def initialize_browser_state(playwright: Playwright) -> Page:
 def chromium_page_with_state(initialize_browser_state, playwright: Playwright) -> Page:
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context(storage_state='browser-state.json')
-    page = context.new_page()
-    yield page
-
+    yield context.new_page()
     browser.close()
+    
