@@ -10,6 +10,7 @@ class RegistrationPage(BasePage):
         self.login_input = page.get_by_test_id('registration-form-username-input').locator('input')
         self.password_input = page.get_by_test_id('registration-form-password-input').locator('input')
         self.registration_button = page.get_by_test_id('registration-page-registration-button')
+        self.login_link = page.get_by_test_id('registration-page-login-link')
 
     def fill_registration_form(self, email: str, login: str, password: str):
         self.email_input.fill(email)
