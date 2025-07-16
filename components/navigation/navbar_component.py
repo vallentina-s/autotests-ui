@@ -8,7 +8,7 @@ class NavbarComponent(BaseComponent):
         super().__init__(page)
 
         self.app_title = page.get_by_test_id('navigation-navbar-app-title-text')
-        self.welcome_title = page.get_by_test_id('navigation-navbar-welcome--title-text')
+        self.welcome_title = page.get_by_test_id('navigation-navbar-welcome-title-text')
 
     def check_visible(self, username: str):
         expect(self.app_title).to_be_visible()
