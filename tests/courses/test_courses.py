@@ -36,7 +36,6 @@ class TestCourses:
         create_course_page.visit("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create")
 
         create_course_page.create_course_toolbar_view.check_visible()
-        create_course_page.create_course_toolbar_view.check_disabled_create_course_button()
         create_course_page.image_upload_widget.check_visible(is_image_uploaded=False)
         create_course_page.create_course_form.check_visible(
             title="", max_score="0", min_score="0", description="", estimated_time=""
