@@ -29,7 +29,7 @@ class TestAuthorization:
             registration_page: RegistrationPage,
             login_page: LoginPage):
         registration_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration')
-        registration_page.registration_form.fill(email='user.name@gmauil.com',login='username', password='password')
+        registration_page.registration_form.fill(email='user.name@gmauil.com',username='username', password='password')
         registration_page.click_registration_button()
 
         dashboard_page.dashboard_toolbar_view.check_visible()
@@ -73,6 +73,6 @@ class TestAuthorization:
         login_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/login')
         login_page.click_registration_link()
 
-        registration_page.registration_form.check_visible(email="", login="", password="")
+        registration_page.registration_form.check_visible(email="", username="", password="")
 
 
